@@ -1,4 +1,5 @@
 import ForecastGroup from 'components/ForecastGroup'
+import SearchInput from 'components/SearchInput'
 import { Container } from 'react-bootstrap'
 
 function App() {
@@ -39,10 +40,25 @@ function App() {
       img: 'https://www.metaweather.com/static/img/weather/sn.svg'
     }
   ]
+  const filteredSuggestion = [
+    {
+      title: "London",
+      location_type: "City",
+      woeid: 44418,
+      latt_long: "51.506321,-0.12714"
+    },
+    {
+      title: "Barcelona",
+      location_type: "City",
+      woeid: 753692,
+      latt_long: "41.385578,2.168740"
+    }
+  ]
   return (
     <div className="App">
       <Container>
         <h2 className="txt-center pd-bottom-lg">5 Day Weather</h2>
+        <SearchInput filteredSuggestion={filteredSuggestion} />
         <ForecastGroup forecastDays={days} />
       </Container>
     </div>
