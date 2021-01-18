@@ -1,0 +1,23 @@
+{
+  "rules": {
+    "semi": [
+      "error",
+      "never"
+    ],
+    "no-explicit-any": "off",
+    "react/react-in-jsx-scope": "off"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jest/recommended"
+  ],
+  "parser": "babel-eslint",
+  "env": {
+    "node": true,
+    "commonjs": true,
+    "browser": true,
+    "es6": true,
+    "jest/globals": true
+  }
+}
