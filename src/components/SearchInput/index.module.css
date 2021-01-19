@@ -1,0 +1,23 @@
+.Suggestion {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  z-index: 10;
+  background: white;
+  width: calc(100% - 30px);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 4px;
+  border: 0;
+  top: -16px;
+}
+
+.Suggestion li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.Suggestion li:hover {
+  background: #fab17a;
+  color: white;
+}

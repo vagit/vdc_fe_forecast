@@ -8,14 +8,14 @@ const ForecastTile = ({ day }) => {
     <Card className={styles.Card}>
     <Card.Body>
       <Card.Title className="txt-center">
-        {day.time} - Heavy Rain
+        {day.weatherDay} <br/> {day.weatherState}
       </Card.Title>
       <Card.Img
         className={styles.Image}
-        src={day.img}
+        src={day.weatherIcon}
       ></Card.Img>
       <Card.Text className="txt-center">
-        <strong>{day.max}°</strong> / {day.min}°
+        <strong>{day.weatherMax}°</strong> / {day.weatherMin}°
       </Card.Text>
     </Card.Body>
   </Card>
