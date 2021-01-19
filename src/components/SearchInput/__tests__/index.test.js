@@ -46,7 +46,7 @@ describe('Search Input component', () => {
       filteredSuggestion: defaultSuggestion
     }
     const wrapper = shallow(<SearchInput {...props} />)
-    wrapper.clickHandle = clickMock
+    wrapper.instance().clickHandle = clickMock
     wrapper.instance().inputRef = {
       current: {
         value: ''
@@ -58,19 +58,30 @@ describe('Search Input component', () => {
     expect(clickMock).toHaveBeenCalled()
     secondCitySuggestion.simulate('click')
     expect(clickMock).toHaveBeenCalledTimes(2)
-    expect(clickMock).toHaveBeenLastCalledWith(defaultSuggestion[1], undefined)
+    expect(clickMock).toHaveBeenLastCalledWith(defaultSuggestion[1])
+
   })
 
-  // it('should change value of input when clicked on city suggestion', () => {
-  //   const props = {
-  //     filteredSuggestion: defaultSuggestion
-  //   }
-  //   const wrapper = shallow(<SearchInput {...props} />)
-  //   const firstCitySuggestion = wrapper.find('ul.suggestion').childAt(0)
-  //   const input = wrapper.find('input')
-  //   firstCitySuggestion.simulate('click')
-  //   expect(input).toHaveLength(1)
-  //   console.log(wrapper.instance().refInput)
-
-  // })
+  it('should change value of input when clicked on city suggestion', () => {
+    const props = {
+      filteredSuggestion: defaultSuggestion
+    }
+    const wrapper = shallow(<SearchInput {...props} />)
+    wrapper.instance().inputRef = {
+      current: {
+        value: ''
+      }
+    }
+    const firstCitySuggestion = wrapper.find('ul.suggestion').childAt(0)
+    const input = wrapper.find('.input')
+    firstCitySuggestion.simulate('click')
+    expect(input).toHaveLength(1)
+    expect(wrapper.instance().inputRef).toEqual(
+      {
+        current: {
+          value: 'London'
+        }
+      }
+    )
+  })
 })
