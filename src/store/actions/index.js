@@ -3,3 +3,7 @@ export {
   updateShowCitySuggestion,
   clearCitySuggestion
 } from './city'
+
+export {
+  loadForecast
+} from './forecast'

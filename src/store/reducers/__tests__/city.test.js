@@ -6,7 +6,7 @@ describe('city reducer', () => {
     error: null,
     errorMsg: null,
     showCitySuggestionFlag: null,
-    cityList: null,
+    cityList: [],
     loading: null
   }
   it('should return the initial state', () => {

@@ -5,7 +5,7 @@ const initialState = {
   error: null,
   errorMsg: null,
   showCitySuggestionFlag: null,
-  cityList: null,
+  cityList: [],
   loading: null
 }
 
@@ -21,7 +21,7 @@ const reducers = (state = initialState, action) => {
         cityList: action.city,
         loading: false,
         error: false,
-        errorMsg: action.city.length > 0 ? "" : "No results found",
+        errorMsg: action.city.length > 0 ? "" : "No results found"
       })
     case actionTypes.LOAD_CITY_ERROR:
       return updateObject(state, {
