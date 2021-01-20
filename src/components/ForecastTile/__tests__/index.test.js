@@ -4,11 +4,11 @@ import { Card } from 'react-bootstrap'
 
 const defaultForecast = {
   id: 1,
-  time: 'Mon 18',
-  min: 20,
-  max: 29,
-  weatherName: 'heavy rain',
-  img: 'https://www.metaweather.com/static/img/weather/sn.svg'
+  weatherDay: 'Mon 18',
+  weatherMin: 20,
+  weatherMax: 29,
+  weatherState: 'heavy rain',
+  weatherIcon: 'https://www.metaweather.com/static/img/weather/sn.svg'
 }
 
 describe('Forecast Tile', () => {
@@ -30,10 +30,10 @@ describe('Forecast Tile', () => {
   
   it('should render data into component correctly when lack of data', () => {
     let props = {
-      day: null
+      day: {}
     }
     wrapper = shallow(<ForecastTile {...props} />)
-    expect(wrapper.type()).toEqual(null)
+    expect(wrapper.type()).toMatchObject({})
   })
 
   it('should render data fully', () => {
@@ -41,8 +41,8 @@ describe('Forecast Tile', () => {
       day: defaultForecast
     }
     wrapper = shallow(<ForecastTile {...props} />)
-    expect(wrapper.find(Card.Title).text()).toEqual('Mon 18 - Heavy Rain')
-    expect(wrapper.find(Card.Img).html()).toEqual(`<img class="card-img Image" src="${props.day.img}"/>`)
-    expect(wrapper.find(Card.Text).html()).toEqual(`<p class="txt-center card-text"><strong>${props.day.max}°</strong> / ${props.day.min}°</p>`)
+    expect(wrapper.find(Card.Title).text()).toEqual('Mon 18  heavy rain')
+    expect(wrapper.find(Card.Img).html()).toEqual(`<img class="card-img Image" src="${props.day.weatherIcon}"/>`)
+    expect(wrapper.find(Card.Text).html()).toEqual(`<p class="txt-center card-text"><strong>${props.day.weatherMax}°</strong> / ${props.day.weatherMin}°</p>`)
   })
 })
