@@ -1,9 +1,9 @@
 import PropTypes from "prop-types"
-import SearchInput from 'components/SearchInput'
-import ForecastGroup from 'components/ForecastGroup'
-import Loading from 'components/UI/Loading'
-import { connect } from 'react-redux'
-import { Container } from 'react-bootstrap'
+import SearchInput from "components/SearchInput"
+import ForecastGroup from "components/ForecastGroup"
+import Loading from "components/UI/Loading"
+import { connect } from "react-redux"
+import { Container } from "react-bootstrap"
 
 function App({ forecastDays, loading }) {
   const filteredSuggestion = []
@@ -19,15 +19,15 @@ function App({ forecastDays, loading }) {
   )
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     forecastDays: state.forecast.forecastDays,
-    loading: state.forecast.loading
+    loading: state.forecast.loading,
   }
 }
 App.propTypes = {
   loading: PropTypes.bool,
-  forecastDays: PropTypes.array
+  forecastDays: PropTypes.array,
 }
 
 export default connect(mapStateToProps)(App)

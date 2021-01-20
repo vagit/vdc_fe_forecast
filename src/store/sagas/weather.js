@@ -1,20 +1,20 @@
-import axios from 'axios'
-import * as actionTypes from '../actions/actionTypes'
-import { put, takeEvery, all } from 'redux-saga/effects'
-import * as cityActions from '../actions/city'
-import * as forecastActions from '../actions/forecast'
+import axios from "axios"
+import * as actionTypes from "../actions/actionTypes"
+import { put, takeEvery, all } from "redux-saga/effects"
+import * as cityActions from "../actions/city"
+import * as forecastActions from "../actions/forecast"
 
-export function* fetchCityList({keyword}) {
+export function* fetchCityList({ keyword }) {
   try {
     // debugger // eslint-disable-line no-debugger
     yield put(cityActions.loadCityPending(true))
+    if (!keyword) {
+      yield put(cityActions.loadCitySuccess([]))
+      return
+    }
     const endpoint = `location/search/?query=${keyword}`
     const response = yield axios.get(endpoint)
-    if (response.data.length > 0) {
-      yield put(cityActions.loadCitySuccess(response.data))
-    } else {
-      yield put(cityActions.loadCityError(true))
-    }
+    yield put(cityActions.loadCitySuccess(response.data))
   } catch (error) {
     yield put(cityActions.loadCityError(true))
   }
