@@ -17,7 +17,14 @@
   cursor: pointer;
 }
 
-.Suggestion li:hover {
+.SuggestionButton {
+  background: transparent;
+  color: #000;
+  border: 0;
+  text-align: left;
+}
+
+.SuggestionButton:hover {
   background: #fab17a;
   color: white;
 }

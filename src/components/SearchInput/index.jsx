@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react"
 import { connect } from "react-redux"
 import * as actions from "../../store/actions"
-import { Row, Col, FormControl } from "react-bootstrap"
+import { Row, Col, FormControl, Button } from "react-bootstrap"
 import PropTypes from "prop-types"
 import debounce from "lodash/debounce"
 import styles from "./index.module.css"
@@ -45,8 +45,8 @@ export class SearchInput extends Component {
                   renderEmptySuggestion(this.props.errorMsg)}
 
                 {this.props.cityList.map((city) => (
-                  <li onClick={() => this.clickHandle(city)} key={city.woeid}>
-                    {city.title}
+                  <li key={city.woeid}>
+                    <Button block onClick={() => this.clickHandle(city)} className={styles.SuggestionButton}>{city.title}</Button>
                   </li>
                 ))}
               </ul>

@@ -53,8 +53,8 @@ describe('Search Input component', () => {
       }
     }
     const suggestion = wrapper.find('ul.suggestion')
-    const firstCitySuggestion = suggestion.childAt(0)
-    const secondCitySuggestion = suggestion.childAt(1)
+    const firstCitySuggestion = suggestion.childAt(0).find('Button')
+    const secondCitySuggestion = suggestion.childAt(1).find('Button')
 
     firstCitySuggestion.simulate('click')
     expect(clickMock).toHaveBeenCalled()
@@ -75,7 +75,7 @@ describe('Search Input component', () => {
     wrapper.setProps({
       loadForecast5Days: jest.fn()
     })
-    const firstCitySuggestion = wrapper.find('ul.suggestion').childAt(0)
+    const firstCitySuggestion = wrapper.find('ul.suggestion').childAt(0).find('Button')
     const input = wrapper.find('.input')
     firstCitySuggestion.simulate('click')
     expect(input).toHaveLength(1)
