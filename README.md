@@ -3,6 +3,16 @@ This small project can display a five day weather forecast based upon publicly a
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Start project on local
+```
+yarn install
+yarn start
+```
+
+## Things could improve
+- Could UT which high coverage for all components and store.
+- Suggestion list should have Keyboard Accessibility
+- E2E testing :)
 ## Available Scripts
 
 In the project directory, you can run:
