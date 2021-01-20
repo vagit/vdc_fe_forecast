@@ -5,7 +5,7 @@ import { Row, Col, FormControl } from "react-bootstrap"
 import PropTypes from "prop-types"
 import debounce from "lodash/debounce"
 import styles from "./index.module.css"
-class SearchInput extends Component {
+export class SearchInput extends Component {
   constructor(props) {
     super(props)
     this.inputRef = React.createRef()
